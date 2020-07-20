@@ -1,0 +1,36 @@
+.trello-input{
+
+    &::placeholder{
+        color:#2D9CDB;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    margin-top: 20px;
+    background-color: #96CEED;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+
+.moodle-input{
+
+    background-color: rgba($color: #C4C4C4, $alpha: 0.3);
+    border: 0.25px solid rgba($color: #000000, $alpha: 0.5);
+
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+input{
+    width: 300px;
+    height: 40px;    
+
+    &::placeholder{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
