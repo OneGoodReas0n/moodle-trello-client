@@ -74,6 +74,15 @@ module.exports = {
     ],
   },
 
+  resolve: {
+    alias: {
+      "~": path.resolve(__dirname, "src"),
+      "~c": path.resolve(__dirname, "src/components"),
+      "~p": path.resolve(__dirname, "src/containers"),
+      "~a": path.resolve(__dirname, "assets"),
+    },
+  },
+
   plugins: [new MiniCssExtractPlugin()],
 
   devServer: {
