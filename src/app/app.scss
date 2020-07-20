@@ -1,0 +1,38 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.container{
+    display: flex;
+
+    .wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right-wrapper{
+        background-color: #2D9CDB;
+    }
+
+    .part{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        height: 100vh;
+
+        .form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        img{
+            
+        }
+    }
+}
