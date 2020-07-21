@@ -1,0 +1,27 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-wrapper{
+    background-color: #2D9CDB;
+}
+
+.part{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    transition: 1s ease-in-out width;
+}
+
+.onFocus{
+    width: 60%;
+}
+
+.withoutFocus{
+    width: 40%;
+}
+
