@@ -5,33 +5,61 @@ import TUIlmLogo from "~a/images/tu-ilmenau_logo.svg";
 import Input from "~c/input";
 import Label from "~c/label";
 import Button from "../components/button";
+import LoginContainer from "../components/login-container";
 
 class App extends React.Component {
+  state = {
+    isMoodleFormOnFocus: false,
+    isTrelloFormOnFocus: false,
+    form: {
+      moodle: {
+        login: "",
+        pass: "",
+      },
+      trello: {
+        login: "",
+        pass: "",
+      },
+    },
+  };
+
+  onInputChange = ({ target }) => {
+    const { name, value } = target;
+    const [type, field] = String(name).split("-");
+    const copyState = Object.assign({}, this.state);
+    copyState.form[type][field] = value;
+    this.setState(copyState);
+  };
+
+  onInputFocus = ({ target }) => {
+    const { name, value } = target;
+    const [type] = String(name).split("-");
+    if (type === "moodle") {
+      this.setState({ isMoodleFormOnFocus: !this.state.isMoodleFormOnFocus });
+      return;
+    }
+    this.setState({ isTrelloFormOnFocus: !this.state.isTrelloFormOnFocus });
+  };
+
+  onSubmit = () => {};
+
   render() {
     return (
       <div className="container">
-        <div className="left-wrapper wrapper part">
-          <img src={TUIlmLogo} />
-          <div className="form">
-            <div className="form-group">
-              <Label name="Login" />
-              <Input type="moodle-input" placeholder="Your login" />
-            </div>
-            <div className="form-group">
-              <Label name="Password" />
-              <Input type="moodle-input" placeholder="Your password" />
-            </div>
-            <Button type="moodle" text="Enter" />
-          </div>
-        </div>
-        <div className="right-wrapper wrapper part">
-          <img src={TrelloLogo} />
-          <div className="form">
-            <Input type="trello" placeholder="Enter email" />
-            <Input type="trello" placeholder="Enter password" />
-            <Button type="trello" text="Log in" />
-          </div>
-        </div>
+        <LoginContainer
+          style="moodle"
+          isMoodleFormOnFocus={this.state.isMoodleFormOnFocus}
+          isTrelloFormOnFocus={this.state.isTrelloFormOnFocus}
+          onInputChange={this.onInputChange}
+          onInputFocus={this.onInputFocus}
+        />
+        <LoginContainer
+          style="trello"
+          isMoodleFormOnFocus={this.state.isMoodleFormOnFocus}
+          isTrelloFormOnFocus={this.state.isTrelloFormOnFocus}
+          onInputChange={this.onInputChange}
+          onInputFocus={this.onInputFocus}
+        />
       </div>
     );
   }
