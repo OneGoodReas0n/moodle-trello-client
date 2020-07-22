@@ -6,11 +6,14 @@ import Input from "~c/input";
 import Label from "~c/label";
 import Button from "../components/button";
 import LoginContainer from "../components/login-container";
+import complete from "../components/complete";
 
 class App extends React.Component {
   state = {
     isMoodleFormOnFocus: false,
     isTrelloFormOnFocus: false,
+    isMoodleFormComplete: false,
+    isTrelloFormComplete: false,
     form: {
       moodle: {
         login: "",
@@ -35,13 +38,32 @@ class App extends React.Component {
     const { name, value } = target;
     const [type] = String(name).split("-");
     if (type === "moodle") {
-      this.setState({ isMoodleFormOnFocus: !this.state.isMoodleFormOnFocus });
+      !this.state.isTrelloFormComplete
+        ? this.setState({
+            isMoodleFormOnFocus: !this.state.isMoodleFormOnFocus,
+          })
+        : "";
       return;
     }
-    this.setState({ isTrelloFormOnFocus: !this.state.isTrelloFormOnFocus });
+    !this.state.isMoodleFormComplete
+      ? this.setState({ isTrelloFormOnFocus: !this.state.isTrelloFormOnFocus })
+      : "";
   };
 
-  onSubmit = () => {};
+  onFormSubmit = (e) => {
+    e.preventDefault();
+    const { name } = e.target;
+    const copyState = Object.assign({}, this.state);
+    if (name === "moodle") {
+      copyState.isMoodleFormComplete = true;
+      copyState.isTrelloFormOnFocus = true;
+      this.setState(copyState);
+      return;
+    }
+    copyState.isTrelloFormComplete = true;
+    copyState.isMoodleFormOnFocus = true;
+    this.setState(copyState);
+  };
 
   render() {
     return (
@@ -52,6 +74,9 @@ class App extends React.Component {
           isTrelloFormOnFocus={this.state.isTrelloFormOnFocus}
           onInputChange={this.onInputChange}
           onInputFocus={this.onInputFocus}
+          isMoodleFormComplete={this.state.isMoodleFormComplete}
+          isTrelloFormComplete={this.state.isTrelloFormComplete}
+          onFormSubmit={this.onFormSubmit}
         />
         <LoginContainer
           style="trello"
@@ -59,6 +84,9 @@ class App extends React.Component {
           isTrelloFormOnFocus={this.state.isTrelloFormOnFocus}
           onInputChange={this.onInputChange}
           onInputFocus={this.onInputFocus}
+          isMoodleFormComplete={this.state.isMoodleFormComplete}
+          isTrelloFormComplete={this.state.isTrelloFormComplete}
+          onFormSubmit={this.onFormSubmit}
         />
       </div>
     );

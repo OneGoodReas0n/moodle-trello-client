@@ -80,6 +80,7 @@ module.exports = {
       "~c": path.resolve(__dirname, "src/components"),
       "~p": path.resolve(__dirname, "src/containers"),
       "~a": path.resolve(__dirname, "assets"),
+      "~h": path.resolve(__dirname, "src/hocs"),
     },
   },
 
