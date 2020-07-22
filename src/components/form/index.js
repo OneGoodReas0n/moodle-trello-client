@@ -11,11 +11,12 @@ Form.propTypes = {
   style: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onInputFocus: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
 };
 
-function Form({ style, onInputFocus, onInputChange }) {
+function Form({ style, onInputFocus, onInputChange, onFormSubmit }) {
   return style === "moodle" ? (
-    <div className="form">
+    <form className="form">
       <img src={TUIlmLogo} />
       <FormGroup
         labelName="Login"
@@ -33,10 +34,10 @@ function Form({ style, onInputFocus, onInputChange }) {
         onInputChange={onInputChange}
         onInputFocus={onInputFocus}
       />
-      <Button type="moodle" text="Enter" />
-    </div>
+      <Button type="moodle" text="Enter" onClick={onFormSubmit} />
+    </form>
   ) : (
-    <div className="form">
+    <form className="form">
       <img src={TrelloLogo} />
       <Input
         style="trello"
@@ -53,8 +54,8 @@ function Form({ style, onInputFocus, onInputChange }) {
         onChange={onInputChange}
         onFocus={onInputFocus}
       />
-      <Button type="trello" text="Log in" />
-    </div>
+      <Button type="trello" text="Log in" onClick={onFormSubmit} />
+    </form>
   );
 }
 

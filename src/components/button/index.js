@@ -7,11 +7,13 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-function Button({ type, text }) {
+function Button({ type, text, ...other }) {
   return (
     <div className="label-box">
       <button
         className={type === "trello" ? "btn btn-trello" : "btn btn-moodle"}
+        name={type}
+        {...other}
       >
         {text}
       </button>

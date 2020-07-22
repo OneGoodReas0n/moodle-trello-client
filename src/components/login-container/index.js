@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./login.scss";
 import Form from "~c/form";
+import Complete from "~c/complete";
 
 LoginContainer.propTypes = {
   isMoodleFormOnFocus: PropTypes.bool.isRequired,
@@ -9,6 +10,9 @@ LoginContainer.propTypes = {
   style: PropTypes.string.isRequired,
   onInputFocus: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  isMoodleFormComplete: PropTypes.bool.isRequired,
+  isTrelloFormComplete: PropTypes.bool.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
 };
 
 function LoginContainer({
@@ -17,6 +21,9 @@ function LoginContainer({
   style,
   onInputFocus,
   onInputChange,
+  isMoodleFormComplete,
+  isTrelloFormComplete,
+  onFormSubmit,
 }) {
   return (
     <div
@@ -40,6 +47,12 @@ function LoginContainer({
         style={style}
         onInputFocus={onInputFocus}
         onInputChange={onInputChange}
+        onFormSubmit={onFormSubmit}
+      />
+      <Complete
+        style={style}
+        isTrelloFormComplete={isTrelloFormComplete}
+        isMoodleFormComplete={isMoodleFormComplete}
       />
     </div>
   );

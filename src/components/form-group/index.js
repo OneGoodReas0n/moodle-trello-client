@@ -29,6 +29,7 @@ function FormGroup({
         name={inputName}
         onChange={onInputChange}
         onFocus={onInputFocus}
+        type="password"
       />
     </div>
   );
