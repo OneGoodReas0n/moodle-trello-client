@@ -1,3 +1,6 @@
+@import '~s/colors';
+@import '~s/fonts';
+
 .wrapper{
     display: flex;
     align-items: center;
@@ -5,7 +8,7 @@
 }
 
 .right-wrapper{
-    background-color: #2D9CDB;
+    background-color: $page-background-trello;
 }
 
 .part{

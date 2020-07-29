@@ -1,11 +1,14 @@
+@import '~s/colors';
+@import '~s/fonts';
+
 .text{
     padding-left: 5px;
     margin-top: 10px;
     font-size: 1rem;
-    font-family: 'Roboto';
+    font-family: $btn-font-moodle;
     font-weight: 500;
 }
 
 .text-danger{
-    color: #bd2130;
+    color: $color-danger;
 }

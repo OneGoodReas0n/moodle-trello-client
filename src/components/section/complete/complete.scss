@@ -1,3 +1,6 @@
+@import '~s/colors';
+@import '~s/fonts';
+
 .complete{
     display: flex;
     justify-content: center;
@@ -8,7 +11,7 @@
     width: inherit;
     height: 100%;
     z-index: 100;
-    background-color: #6FCF97;
+    background-color: $btn-bg-moodle;
     transition: 1s ease-in-out top;
 
     &__text{
@@ -17,9 +20,9 @@
         margin-top: 20px;
         margin-bottom: 20px;
         font-size: 2.4rem;
-        font-family: 'Montserrat';
+        font-family: $btn-font-moodle;
         font-weight: 600;
-        color: #FFF;
+        color: $btn-text-color;
     }
 }
 
