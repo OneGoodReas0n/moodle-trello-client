@@ -1,18 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./login.scss";
-import Form from "~c/form";
-import Complete from "~c/complete";
+import Form from "~c/section/form";
+import Complete from "~c/section/complete";
 
 LoginContainer.propTypes = {
   isMoodleFormOnFocus: PropTypes.bool.isRequired,
   isTrelloFormOnFocus: PropTypes.bool.isRequired,
   style: PropTypes.string.isRequired,
-  onInputFocus: PropTypes.func.isRequired,
-  onInputChange: PropTypes.func.isRequired,
+  onInputFocus: PropTypes.func,
+  onInputChange: PropTypes.func,
   isMoodleFormComplete: PropTypes.bool.isRequired,
   isTrelloFormComplete: PropTypes.bool.isRequired,
   onFormSubmit: PropTypes.func.isRequired,
+  onAuthSuccess: PropTypes.bool.isRequired,
 };
 
 function LoginContainer({
@@ -24,6 +25,7 @@ function LoginContainer({
   isMoodleFormComplete,
   isTrelloFormComplete,
   onFormSubmit,
+  onAuthSuccess,
 }) {
   return (
     <div
@@ -48,6 +50,7 @@ function LoginContainer({
         onInputFocus={onInputFocus}
         onInputChange={onInputChange}
         onFormSubmit={onFormSubmit}
+        onAuthSuccess={onAuthSuccess}
       />
       <Complete
         style={style}

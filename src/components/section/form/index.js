@@ -1,20 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./form.scss";
-import FormGroup from "~c/form-group";
-import Button from "~c/button";
-import Input from "~c/input";
+import FormGroup from "~c/section/form-group";
+import Button from "~c/parts/button";
+import Text from "~c/parts/text";
 import TrelloLogo from "~a/images/trello_logo.svg";
 import TUIlmLogo from "~a/images/tu-ilmenau_logo.svg";
 
 Form.propTypes = {
   style: PropTypes.string.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  onInputFocus: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func,
+  onInputFocus: PropTypes.func,
   onFormSubmit: PropTypes.func.isRequired,
+  onAuthSuccess: PropTypes.bool.isRequired,
 };
 
-function Form({ style, onInputFocus, onInputChange, onFormSubmit }) {
+function Form({
+  style,
+  onInputFocus,
+  onInputChange,
+  onFormSubmit,
+  onAuthSuccess,
+}) {
   return style === "moodle" ? (
     <form className="form">
       <img src={TUIlmLogo} />
@@ -34,27 +41,14 @@ function Form({ style, onInputFocus, onInputChange, onFormSubmit }) {
         onInputChange={onInputChange}
         onInputFocus={onInputFocus}
       />
+      <Text content="Wrong login or password" hide={onAuthSuccess} />
       <Button type="moodle" text="Enter" onClick={onFormSubmit} />
     </form>
   ) : (
     <form className="form">
       <img src={TrelloLogo} />
-      <Input
-        style="trello"
-        placeholder="Enter email"
-        name="trello-login"
-        onChange={onInputChange}
-        onFocus={onInputFocus}
-      />
-      <Input
-        style="trello"
-        placeholder="Enter password"
-        type="password"
-        name="trello-password"
-        onChange={onInputChange}
-        onFocus={onInputFocus}
-      />
-      <Button type="trello" text="Log in" onClick={onFormSubmit} />
+      <Text content="An error has occurred" hide={onAuthSuccess} />
+      <Button type="trello" text="Authorize" onClick={onFormSubmit} />
     </form>
   );
 }

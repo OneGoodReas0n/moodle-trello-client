@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Label from "~c/label";
-import Input from "~c/input";
+import Label from "~c/parts/label";
+import Input from "~c/parts/input";
 
 FormGroup.propTypes = {
   labelName: PropTypes.string.isRequired,
@@ -29,7 +29,7 @@ function FormGroup({
         name={inputName}
         onChange={onInputChange}
         onFocus={onInputFocus}
-        type="password"
+        type={String(labelName).toLowerCase()}
       />
     </div>
   );
