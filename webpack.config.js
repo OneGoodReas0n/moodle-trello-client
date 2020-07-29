@@ -81,6 +81,7 @@ module.exports = {
       "~p": path.resolve(__dirname, "src/containers"),
       "~a": path.resolve(__dirname, "assets"),
       "~h": path.resolve(__dirname, "src/hocs"),
+      "~s": path.resolve(__dirname, "src/styles"),
     },
   },
 
