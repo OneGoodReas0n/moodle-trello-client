@@ -1,0 +1,13 @@
+@import '~s/colors';
+@import '~s/fonts';
+
+.label-box{
+    padding: 10px 0;
+    
+    .label{
+        color: $form-label-color;
+        font-family: $btn-font-moodle;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
