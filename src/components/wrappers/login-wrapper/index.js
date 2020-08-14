@@ -6,7 +6,6 @@ import Complete from "~c/sections/complete";
 
 LoginContainer.propTypes = {
   isMoodleFormOnFocus: PropTypes.bool.isRequired,
-  isTrelloFormOnFocus: PropTypes.bool.isRequired,
   style: PropTypes.string.isRequired,
   onInputFocus: PropTypes.func,
   onInputChange: PropTypes.func,
