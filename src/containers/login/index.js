@@ -1,14 +1,16 @@
 import React from "react";
 import "./login.scss";
 import LoginWrapper from "~c/wrappers/login-wrapper";
+import Greeting from "~c/wrappers/greeting";
 
 class LoginContainer extends React.Component {
   state = {
     isMoodleFormOnFocus: false,
-    isMoodleFormComplete: false,
+    isMoodleFormComplete: true,
     isTrelloFormComplete: false,
     isTrelloAuthSuccess: true,
     isMoodleAuthSuccess: true,
+    user: "",
     form: {
       login: "",
       password: "",
@@ -78,6 +80,16 @@ class LoginContainer extends React.Component {
     copyState.isTrelloFormComplete = true;
     copyState.isMoodleFormOnFocus = true;
     this.setState(copyState);
+    console.log(
+      window.Trello.rest(
+        "GET",
+        "members/me",
+        { fields: "fullName,username" },
+        (response) => {
+          console.log("Response: ", response);
+        }
+      )
+    );
     const token = window.Trello.token();
     const key = window.Trello.key();
     fetch("http://localhost:3000/trello", {
@@ -132,6 +144,12 @@ class LoginContainer extends React.Component {
           isTrelloFormComplete={this.state.isTrelloFormComplete}
           onFormSubmit={this.onTrelloAuth}
           onAuthSuccess={this.state.isTrelloAuthSuccess}
+        />
+        <Greeting
+          onInputChange={this.onInputChange}
+          onInputFocus={this.onInputFocus}
+          activeMoodle={this.state.isMoodleFormComplete}
+          activeTrello={this.state.isTrelloFormComplete}
         />
       </div>
     );
