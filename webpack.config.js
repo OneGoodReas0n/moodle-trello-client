@@ -79,9 +79,10 @@ module.exports = {
       "~": path.resolve(__dirname, "src"),
       "~c": path.resolve(__dirname, "src/components"),
       "~p": path.resolve(__dirname, "src/containers"),
-      "~a": path.resolve(__dirname, "assets"),
+      "~a": path.resolve(__dirname, "src/assets"),
       "~h": path.resolve(__dirname, "src/hocs"),
       "~s": path.resolve(__dirname, "src/styles"),
+      "~r": path.resolve(__dirname, "src/routes"),
     },
   },
 
