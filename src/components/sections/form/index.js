@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./form.scss";
-import FormGroup from "~c/section/form-group";
+import FormGroup from "~c/sections/form-group";
 import Button from "~c/parts/button";
 import Text from "~c/parts/text";
 import TrelloLogo from "~a/images/trello_logo.svg";

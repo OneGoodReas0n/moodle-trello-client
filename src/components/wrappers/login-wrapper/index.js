@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./login.scss";
-import Form from "~c/section/form";
-import Complete from "~c/section/complete";
+import Form from "~c/sections/form";
+import Complete from "~c/sections/complete";
 
 LoginContainer.propTypes = {
   isMoodleFormOnFocus: PropTypes.bool.isRequired,
